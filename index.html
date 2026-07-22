@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rompimentos do Dia — Terrano Engenharia</title>
+<style>
+  :root{--navy:#1F3864;--navy2:#2b4a7a;--bg:#f4f6f9;--card:#fff;--red:#c0392b;--amber:#c98a00;--gray:#5b6472;--line:#e4e8ee;}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:#1c2430;line-height:1.35;}
+  header{background:var(--navy);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:5;box-shadow:0 2px 8px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  header h1{font-size:16px;font-weight:700;} header .sub{font-size:11.5px;opacity:.85;margin-top:2px;}
+  #btnPrint{background:#fff;color:var(--navy);border:none;border-radius:8px;padding:8px 12px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .wrap{max-width:720px;margin:0 auto;padding:14px;}
+  #login{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:20;padding:24px;}
+  #login .box{background:#fff;border-radius:16px;padding:28px 22px;width:100%;max-width:340px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.3);}
+  #login .logo{width:54px;height:54px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;margin:0 auto 14px;}
+  #login h2{font-size:18px;margin-bottom:4px;color:var(--navy);} #login p{font-size:13px;color:var(--gray);margin-bottom:18px;}
+  #pwd{width:100%;padding:13px 14px;font-size:16px;border:1.5px solid var(--line);border-radius:10px;text-align:center;letter-spacing:2px;}
+  #enter{width:100%;margin-top:12px;padding:13px;font-size:15px;font-weight:700;color:#fff;background:var(--navy);border:none;border-radius:10px;cursor:pointer;}
+  #err{color:var(--red);font-size:13px;margin-top:10px;min-height:16px;}
+  .summary{display:flex;gap:8px;margin-bottom:14px;}
+  .stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;}
+  .stat .n{font-size:22px;font-weight:800;} .stat .l{font-size:10.5px;color:var(--gray);text-transform:uppercase;letter-spacing:.4px;margin-top:1px;}
+  .stat.red .n{color:var(--red);}.stat.amber .n{color:var(--amber);}.stat.gray .n{color:var(--gray);}
+  .group{margin-bottom:16px;} .group h3{font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;color:var(--gray);}
+  .card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gray);border-radius:9px;padding:8px 11px;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+  .card.vencido{border-left-color:var(--red);}.card.hoje{border-left-color:var(--amber);}.card.amanha{border-left-color:var(--navy);}
+  .card .datebox{flex:0 0 auto;text-align:center;min-width:42px;}
+  .card .datebox .dd{font-size:17px;font-weight:800;line-height:1;color:var(--navy);}
+  .card.vencido .datebox .dd{color:var(--red);}.card.hoje .datebox .dd{color:var(--amber);}
+  .card .datebox .mm{font-size:10px;text-transform:uppercase;color:var(--gray);}
+  .card .body{flex:1 1 auto;min-width:0;} .card .cliente{font-weight:800;font-size:13.5px;}
+  .card .cps{font-size:13px;margin-top:1px;} .card .cps b{color:var(--navy);} .card .fck{color:var(--gray);font-size:12px;margin-left:2px;}
+  .card .qty{flex:0 0 auto;background:#eef1f5;color:var(--navy);font-weight:800;font-size:12px;border-radius:20px;padding:3px 9px;}
+  .card.vencido .qty{background:#fbe6e3;color:var(--red);}
+  .empty{text-align:center;color:var(--gray);font-size:14px;padding:26px;}
+  footer{text-align:center;font-size:11px;color:#9aa3b0;padding:16px;}
+  .live{display:inline-block;width:7px;height:7px;background:#3ecf6b;border-radius:50%;margin-right:5px;vertical-align:middle;}
+  #printArea{display:none;}
+  @media print{
+    #login,header,.wrap,footer{display:none !important;}
+    #printArea{display:block !important;} body{background:#fff;}
+    .pr-title{font-size:16px;font-weight:800;margin-bottom:2px;}
+    .pr-sub{font-size:11px;color:#333;margin-bottom:10px;}
+    table.pr{width:100%;border-collapse:collapse;font-size:12px;}
+    table.pr th,table.pr td{border:1px solid #333;padding:6px;text-align:left;}
+    table.pr th{background:#eee;font-size:11px;text-transform:uppercase;}
+    table.pr td.c{text-align:center;}
+    .rbox{display:inline-block;border-bottom:1px solid #000;width:72px;height:16px;margin-right:8px;}
+    @page{margin:14mm;}
+  }
+</style></head><body>
+<div id="login"><div class="box">
+  <div class="logo">T</div><h2>Rompimentos do Dia</h2>
+  <p>Terrano Engenharia · acesso restrito</p>
+  <input id="pwd" type="password" inputmode="numeric" placeholder="senha" autocomplete="off">
+  <button id="enter">Entrar</button><div id="err"></div>
+</div></div>
+<header>
+  <div><h1>Corpos de prova a romper</h1><div class="sub"><span class="live"></span><span id="hoje"></span></div></div>
+  <button id="btnPrint">🖨 Imprimir</button>
+</header>
+<div class="wrap">
+  <div class="summary">
+    <div class="stat red"><div class="n" id="s-venc">0</div><div class="l">Vencidos</div></div>
+    <div class="stat amber"><div class="n" id="s-hoje">0</div><div class="l">Hoje</div></div>
+    <div class="stat gray"><div class="n" id="s-amanha">0</div><div class="l">Amanhã</div></div>
+  </div>
+  <div id="lista"></div>
+</div>
+<div id="printArea"></div>
+<footer>Terrano Engenharia · vencidos (7 dias) + hoje + próximos 2 dias · contraprova (63d) não listada</footer>
+<script>
+const SENHA="1887"; const DIAS_FRENTE=2;
+const $=s=>document.querySelector(s);
+function tryLogin(){if($("#pwd").value===SENHA){$("#login").style.display="none";document.getElementById("lista").innerHTML='<div class="empty">Carregando…</div>';carregar(render);}else{$("#err").textContent="Senha incorreta";$("#pwd").value="";}}
+$("#enter").onclick=tryLogin;
+$("#pwd").addEventListener("keydown",e=>{if(e.key==="Enter")tryLogin();});
+$("#btnPrint").onclick=function(){window.print();};
+let DADOS=[];
+const DATA_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vRkDq7wj-uCUCUrHWNXXC5PYLi4glyuNU3W5Gs3mcZ6-Q_lx4M6GvdbW2s6pEjjdLmvfXPxOnwCxpNl/pub?output=csv";
+function normData(s){
+  if(!s)return s; s=(""+s).trim();
+  if(/^\d{4}-\d{2}-\d{2}/.test(s))return s.slice(0,10);           // ja ISO
+  var m=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);       // dd/mm/aaaa ou mm/dd/aaaa
+  if(m){var a=+m[1],b=+m[2],y=m[3],d,mo;
+    if(a>12){d=a;mo=b;} else if(b>12){d=b;mo=a;} else {d=a;mo=b;}     // padrao BR: dd/mm
+    return y+"-"+("0"+mo).slice(-2)+"-"+("0"+d).slice(-2);}
+  var dt=new Date(s); if(!isNaN(dt))return dt.toISOString().slice(0,10);
+  return s;
+}
+function parseCSV(t){
+  const linhas=t.replace(/\r/g,"").split("\n").filter(l=>l.length);
+  const head=linhas.shift().split(",").map(s=>s.trim().replace(/^"|"$/g,""));
+  return linhas.map(function(l){
+    // split simples por virgula (dados nao tem virgula interna)
+    const c=l.split(",");
+    const o={}; head.forEach((k,i)=>o[k]=(c[i]||"").trim().replace(/^"|"$/g,""));
+    o.idade=parseInt(o.idade)||0; o.n=parseInt(o.n)||2;
+    o.rompimento=normData(o.rompimento); o.concretagem=normData(o.concretagem); return o;
+  });
+}
+function carregar(cb){
+  fetch(DATA_URL+"&_="+Date.now()).then(r=>r.text()).then(function(t){
+    DADOS=parseCSV(t); cb&&cb();
+  }).catch(function(e){
+    document.getElementById("lista").innerHTML='<div class="empty">Não consegui carregar os dados da planilha. Verifique a conexão.</div>';
+  });
+}
+
+const MESES=["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+function dd(iso){return new Date(iso+"T00:00:00").getDate();}
+function mm(iso){return MESES[new Date(iso+"T00:00:00").getMonth()];}
+function fmt(iso){return dd(iso)+" "+mm(iso);}
+function hoje0(){var d=new Date();d.setHours(0,0,0,0);return d;}
+function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/86400000);}
+function render(){
+  var h=new Date();
+  $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
+  var mapa={};
+  DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
+    if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
+    mapa[k].cps.push(x.cp); if(x.fck)mapa[k].fcks.add(String(x.fck));});
+  var g={vencido:[],hoje:[],amanha:[],prox:[]};
+  Object.values(mapa).forEach(function(x){var n=diff(x.rompimento);if(n<0)g.vencido.push(x);else if(n===0)g.hoje.push(x);else if(n===1)g.amanha.push(x);else if(n<=DIAS_FRENTE)g.prox.push(x);});
+  Object.values(g).forEach(function(a){a.sort(function(p,q){return p.rompimento<q.rompimento?-1:1;});});
+  $("#s-venc").textContent=g.vencido.reduce(function(s,x){return s+x.cps.length;},0);
+  $("#s-hoje").textContent=g.hoje.reduce(function(s,x){return s+x.cps.length;},0);
+  $("#s-amanha").textContent=g.amanha.reduce(function(s,x){return s+x.cps.length;},0);
+  var cont=$("#lista");cont.innerHTML="";
+  [["vencido","Vencidos — romper com urgência",g.vencido],["hoje","Romper hoje",g.hoje],["amanha","Romper amanhã",g.amanha],["prox","Próximos dias",g.prox]].forEach(function(sc){
+    var cls=sc[0],titulo=sc[1],arr=sc[2]; if(!arr.length)return;
+    var sec=document.createElement("div");sec.className="group "+cls;sec.innerHTML="<h3>"+titulo+"</h3>";
+    arr.forEach(function(x){var n=diff(x.rompimento);
+      var bt=cls==="vencido"?("há "+Math.abs(n)+"d"):cls==="hoje"?"hoje":cls==="amanha"?"amanhã":fmt(x.rompimento);
+      var cps=x.cps.slice().sort(function(a,b){return (""+a).localeCompare(""+b,undefined,{numeric:true});});
+      var fck=Array.from(x.fcks).join(" / ");
+      var c=document.createElement("div");c.className="card "+cls;
+      c.innerHTML='<div class="datebox"><div class="dd">'+dd(x.rompimento)+'</div><div class="mm">'+mm(x.rompimento)+'</div></div>'+
+        '<div class="body"><div class="cliente">'+x.cliente+'</div><div class="cps">'+(cps.length>1?"CPs":"CP")+' <b>'+cps.join(", ")+'</b>'+(fck?'<span class="fck">· FCK '+fck+'</span>':'')+'</div></div>'+
+        '<div class="qty">'+cps.length+'</div>';
+      sec.appendChild(c);});
+    cont.appendChild(sec);});
+  if(!cont.innerHTML)cont.innerHTML='<div class="empty">Nenhum corpo de prova pendente.</div>';
+  buildPrint();
+}
+function buildPrint(){
+  var linhas=DADOS.filter(function(x){return diff(x.rompimento)<=0;}).slice()
+     .sort(function(a,b){if(a.cliente!==b.cliente)return a.cliente<b.cliente?-1:1;return a.rompimento<b.rompimento?-1:1;});
+  var hoje=new Date().toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric"});
+  var html='<div class="pr-title">Rompimento de corpos de prova — Terrano Engenharia</div>'+
+           '<div class="pr-sub">Data: '+hoje+' · Atrasados + romper hoje. Anote a resistência (MPa) de cada corpo à caneta.</div>';
+  if(!linhas.length){$("#printArea").innerHTML=html+'<p>Nenhum corpo de prova para romper hoje ou atrasado.</p>';return;}
+  html+='<table class="pr"><thead><tr><th>Empresa</th><th>CP</th><th class="c">Idade</th><th class="c">Nº corpos</th><th>Resistência anotada (MPa)</th></tr></thead><tbody>';
+  linhas.forEach(function(x){
+    var n=x.n||2,boxes="";for(var i=0;i<n;i++)boxes+='<span class="rbox"></span>';
+    var venc=diff(x.rompimento)<0?(' (atrasado '+fmt(x.rompimento)+')'):'';
+    html+='<tr><td>'+x.cliente+'</td><td>'+x.cp+venc+'</td><td class="c">'+x.idade+'d</td><td class="c">'+n+'</td><td>'+boxes+'</td></tr>';
+  });
+  html+='</tbody></table>';
+  $("#printArea").innerHTML=html;
+}
+</script></body></html>
