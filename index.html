@@ -68,9 +68,9 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + próximos 2 dias · contraprova (63d) não listada · atualizado 22/07/2026 15:44</footer>
+<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 22/07/2026 15:44</footer>
 <script>
-const SENHA="1887"; const DIAS_FRENTE=2;
+const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
 function tryLogin(){if($("#pwd").value===SENHA){$("#login").style.display="none";document.getElementById("lista").innerHTML='<div class="empty">Carregando…</div>';carregar(render);}else{$("#err").textContent="Senha incorreta";$("#pwd").value="";}}
 $("#enter").onclick=tryLogin;
@@ -442,7 +442,7 @@ function render(){
   $("#s-hoje").textContent=g.hoje.reduce(function(s,x){return s+x.cps.length;},0);
   $("#s-amanha").textContent=g.amanha.reduce(function(s,x){return s+x.cps.length;},0);
   var cont=$("#lista");cont.innerHTML="";
-  [["vencido","Vencidos — romper com urgência",g.vencido],["hoje","Romper hoje",g.hoje],["amanha","Romper amanhã",g.amanha],["prox","Próximos dias",g.prox]].forEach(function(sc){
+  [["vencido","Vencidos — romper com urgência",g.vencido],["hoje","Romper hoje",g.hoje],["amanha","Romper amanhã",g.amanha]].forEach(function(sc){
     var cls=sc[0],titulo=sc[1],arr=sc[2]; if(!arr.length)return;
     var sec=document.createElement("div");sec.className="group "+cls;sec.innerHTML="<h3>"+titulo+"</h3>";
     arr.forEach(function(x){var n=diff(x.rompimento);
