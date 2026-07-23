@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 22/07/2026 17:11</footer>
+<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 23/07/2026 07:38</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -98,7 +98,7 @@ ESMERALDA,34,28,25,2,2026-06-25,2026-07-23
 ESMERALDA,35,28,25,2,2026-06-25,2026-07-23
 ESMERALDA,36,28,25,2,2026-06-25,2026-07-23
 ESMERALDA,37,28,25,2,2026-06-25,2026-07-23
-MARCO TRÊS FRONTEIRAS,PL4,28,30,2,2026-06-25,2026-07-23
+MARCO TRÊS FRONTEIRAS,PL4 ,28,30,2,2026-06-25,2026-07-23
 RECANTO IGUAÇU,234,28,25,2,2026-06-25,2026-07-23
 RITA LEE,321,14,30,2,2026-07-09,2026-07-23
 RITA LEE,322,14,30,2,2026-07-09,2026-07-23
@@ -196,6 +196,8 @@ ELIS REGINA,259,7,30,2,2026-07-21,2026-07-28
 RECANTO IGUAÇU,236,28,25,2,2026-06-30,2026-07-28
 RECANTO IGUAÇU,237,28,25,2,2026-06-30,2026-07-28
 CATARATAS,216,28,30,2,2026-07-01,2026-07-29
+FURNAS,10,14,30,2,2026-07-15,2026-07-29
+FURNAS,11,14,30,2,2026-07-15,2026-07-29
 GAL COSTA,389,28,30,2,2026-07-01,2026-07-29
 GAL COSTA,390,28,30,2,2026-07-01,2026-07-29
 GAL COSTA,391,28,30,2,2026-07-01,2026-07-29
@@ -216,6 +218,10 @@ RITA LEE,329,14,30,2,2026-07-16,2026-07-30
 RITA LEE,330,14,30,2,2026-07-16,2026-07-30
 RITA LEE,331,14,30,2,2026-07-16,2026-07-30
 CATARATAS,218,28,30,2,2026-07-03,2026-07-31
+FURNAS,6,28,30,2,2026-07-03,2026-07-31
+FURNAS,7,28,30,2,2026-07-03,2026-07-31
+FURNAS,8,28,30,2,2026-07-03,2026-07-31
+FURNAS,9,28,30,2,2026-07-03,2026-07-31
 RITA LEE,317,28,30,2,2026-07-03,2026-07-31
 RITA LEE,318,28,30,2,2026-07-03,2026-07-31
 RITA LEE,319,28,30,2,2026-07-03,2026-07-31
@@ -286,6 +292,8 @@ ANDORA,PS68,28,35,2,2026-07-14,2026-08-11
 CATARATAS,225,28,30,2,2026-07-14,2026-08-11
 MARCO TRÊS FRONTEIRAS,P07,28,40,2,2026-07-14,2026-08-11
 CATARATAS,226,28,30,2,2026-07-15,2026-08-12
+FURNAS,10,28,30,2,2026-07-15,2026-08-12
+FURNAS,11,28,30,2,2026-07-15,2026-08-12
 GAL COSTA,396,28,30,2,2026-07-15,2026-08-12
 GAL COSTA,397,28,30,2,2026-07-15,2026-08-12
 LIV,180,28,35,2,2026-07-15,2026-08-12
@@ -398,7 +406,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 22/07/2026 17:11";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 23/07/2026 07:38";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
