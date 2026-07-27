@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 27/07/2026 07:46</footer>
+<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 27/07/2026 13:10</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -349,7 +349,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 27/07/2026 07:46";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 27/07/2026 13:10";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
