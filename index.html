@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 28/07/2026 07:30</footer>
+<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 28/07/2026 07:32</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -80,7 +80,6 @@ let DADOS=[];
 const DADOS_CSV=`
 cliente,cp,idade,fck,n,concretagem,rompimento
 AGROTEC,119,28,30,2,2026-06-04,2026-07-02
-CATARATAS,202,28,40,2,2026-06-26,2026-07-24
 ANDORA,PS80,7,25,2,2026-07-21,2026-07-28
 ANDORA,PS81,7,25,2,2026-07-21,2026-07-28
 ANDORA,PS82,7,25,2,2026-07-21,2026-07-28
@@ -330,7 +329,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 28/07/2026 07:30";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 28/07/2026 07:32";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
