@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 27/07/2026 13:10</footer>
+<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 28/07/2026 07:30</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -81,25 +81,6 @@ const DADOS_CSV=`
 cliente,cp,idade,fck,n,concretagem,rompimento
 AGROTEC,119,28,30,2,2026-06-04,2026-07-02
 CATARATAS,202,28,40,2,2026-06-26,2026-07-24
-MARCO TRÊS FRONTEIRAS,P08,7,40,2,2026-07-18,2026-07-25
-URBAN,329,14,35,1,2026-07-11,2026-07-25
-URBAN,330,14,35,1,2026-07-11,2026-07-25
-FTX,71,7,35,2,2026-07-20,2026-07-27
-FTX,72,7,35,2,2026-07-20,2026-07-27
-FTX,73,7,35,2,2026-07-20,2026-07-27
-FTX,74,7,35,2,2026-07-20,2026-07-27
-FTX,75,7,35,2,2026-07-20,2026-07-27
-FTX,76,7,35,2,2026-07-20,2026-07-27
-FTX,77,7,35,2,2026-07-20,2026-07-27
-FTX,78,7,35,2,2026-07-20,2026-07-27
-FTX,79,7,35,2,2026-07-20,2026-07-27
-FTX,80,7,35,2,2026-07-20,2026-07-27
-FTX,81,7,35,2,2026-07-20,2026-07-27
-MARCO TRÊS FRONTEIRAS,PL5,7,30,2,2026-07-20,2026-07-27
-RITA LEE,313,28,30,2,2026-06-29,2026-07-27
-RITA LEE,314,28,30,2,2026-06-29,2026-07-27
-RITA LEE,315,28,30,2,2026-06-29,2026-07-27
-RITA LEE,316,28,30,2,2026-06-29,2026-07-27
 ANDORA,PS80,7,25,2,2026-07-21,2026-07-28
 ANDORA,PS81,7,25,2,2026-07-21,2026-07-28
 ANDORA,PS82,7,25,2,2026-07-21,2026-07-28
@@ -349,7 +330,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 27/07/2026 13:10";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 28/07/2026 07:30";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
