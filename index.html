@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 29/07/2026 07:35</footer>
+<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) não listada · atualizado 29/07/2026 07:43</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -90,19 +90,6 @@ ELIS REGINA,G243,28,20,2,2026-06-26,2026-07-24
 RITA LEE,G329,7,20,2,2026-07-17,2026-07-24
 TEC VERDE,8,28,25,2,2026-06-26,2026-07-24
 TEC VERDE,9,28,25,2,2026-06-26,2026-07-24
-CATARATAS,216,28,30,2,2026-07-01,2026-07-29
-FURNAS,10,14,30,2,2026-07-15,2026-07-29
-FURNAS,11,14,30,2,2026-07-15,2026-07-29
-GAL COSTA,389,28,30,2,2026-07-01,2026-07-29
-GAL COSTA,390,28,30,2,2026-07-01,2026-07-29
-GAL COSTA,391,28,30,2,2026-07-01,2026-07-29
-GAL COSTA,396,14,30,2,2026-07-15,2026-07-29
-GAL COSTA,397,14,30,2,2026-07-15,2026-07-29
-RITA LEE,317a,28,30,2,2026-07-01,2026-07-29
-RITA LEE,318a,28,30,2,2026-07-01,2026-07-29
-RITA LEE,319a,28,30,2,2026-07-01,2026-07-29
-RITA LEE,320a,28,30,2,2026-07-01,2026-07-29
-URBAN,331,14,35,1,2026-07-15,2026-07-29
 CATARATAS,217,28,30,2,2026-07-02,2026-07-30
 LIV,179,28,35,2,2026-07-02,2026-07-30
 RITA LEE,325,14,30,2,2026-07-16,2026-07-30
@@ -373,7 +360,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 29/07/2026 07:35";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 29/07/2026 07:43";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
