@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 03/08/2026 10:15</footer>
+<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 03/08/2026 13:12</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -79,15 +79,10 @@ $("#btnPrint").onclick=function(){window.print();};
 let DADOS=[];
 const DADOS_CSV=`
 cliente,cp,idade,fck,n,concretagem,rompimento
-MARCO TRÊS FRONTEIRAS,G1,7,50,2,2026-07-23,2026-07-30
-MARCO TRÊS FRONTEIRAS,G2,7,50,2,2026-07-23,2026-07-30
 RITA LEE,G329,14,20,2,2026-07-17,2026-07-31
 RITA LEE,G337,7,20,2,2026-07-24,2026-07-31
-MARCO TRÊS FRONTEIRAS,P05,28,40,2,2026-07-04,2026-08-01
-MARCO TRÊS FRONTEIRAS,P06,28,40,2,2026-07-04,2026-08-01
 GAL COSTA,398,7,30,2,2026-07-27,2026-08-03
 GAL COSTA,399,7,30,2,2026-07-27,2026-08-03
-MARCO TRÊS FRONTEIRAS,P9,7,40,2,2026-07-27,2026-08-03
 SOHO,110,7,50,2,2026-07-27,2026-08-03
 SOHO,111,7,50,2,2026-07-27,2026-08-03
 SOHO,112,7,50,2,2026-07-27,2026-08-03
@@ -326,6 +321,8 @@ ELIS REGINA,257,28,30,2,2026-07-21,2026-08-18
 ELIS REGINA,258,28,30,2,2026-07-21,2026-08-18
 ELIS REGINA,259,28,30,2,2026-07-21,2026-08-18
 RITA LEE,336,28,30,2,2026-07-21,2026-08-18
+MARCO TRÊS FRONTEIRAS,G1,28,50,2,2026-07-23,2026-08-20
+MARCO TRÊS FRONTEIRAS,G2,28,50,2,2026-07-23,2026-08-20
 CATARATAS,237,28,30,2,2026-07-24,2026-08-21
 RITA LEE,338,28,30,2,2026-07-24,2026-08-21
 RITA LEE,G337,28,20,2,2026-07-24,2026-08-21
@@ -436,7 +433,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 03/08/2026 10:15";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 03/08/2026 13:12";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
