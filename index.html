@@ -68,7 +68,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 03/08/2026 13:12</footer>
+<footer>Terrano Engenharia · vencidos (últimos 30 dias) + hoje + amanhã · contraprova (63d) não listada · atualizado 04/08/2026 07:45</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -83,20 +83,6 @@ RITA LEE,G329,14,20,2,2026-07-17,2026-07-31
 RITA LEE,G337,7,20,2,2026-07-24,2026-07-31
 GAL COSTA,398,7,30,2,2026-07-27,2026-08-03
 GAL COSTA,399,7,30,2,2026-07-27,2026-08-03
-SOHO,110,7,50,2,2026-07-27,2026-08-03
-SOHO,111,7,50,2,2026-07-27,2026-08-03
-SOHO,112,7,50,2,2026-07-27,2026-08-03
-SOHO,113,7,50,2,2026-07-27,2026-08-03
-SOHO,114,7,50,2,2026-07-27,2026-08-03
-SOHO,115,7,50,2,2026-07-27,2026-08-03
-SOHO,116,7,50,2,2026-07-27,2026-08-03
-SOHO,117,7,50,2,2026-07-27,2026-08-03
-SOHO,118,7,50,2,2026-07-27,2026-08-03
-SOHO,119,7,50,2,2026-07-27,2026-08-03
-SOHO,120,7,50,2,2026-07-27,2026-08-03
-SOHO,121,7,50,2,2026-07-27,2026-08-03
-SOHO,122,7,50,2,2026-07-27,2026-08-03
-SOHO,123,7,50,2,2026-07-27,2026-08-03
 ASHER,48,7,30,2,2026-07-28,2026-08-04
 ASHER,49,7,30,2,2026-07-28,2026-08-04
 ASHER,50,7,30,2,2026-07-28,2026-08-04
@@ -433,7 +419,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 03/08/2026 13:12";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 04/08/2026 07:45";
   var mapa={};
   DADOS.forEach(function(x){var k=x.cliente+"|"+x.rompimento;
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set()};
