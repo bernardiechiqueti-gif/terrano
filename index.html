@@ -71,7 +71,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · rompimentos de hoje (10/08) e amanhã (11/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 10/08/2026 07:45</footer>
+<footer>Terrano Engenharia · rompimentos de hoje (10/08) e amanhã (11/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 10/08/2026 07:49</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -87,8 +87,6 @@ MARCO TRÊS FRONTEIRAS,P11,7,40,2,2026-08-01,2026-08-08
 TEC VERDE,10,28,25,2,2026-07-11,2026-08-08
 TEC VERDE,11,28,25,2,2026-07-11,2026-08-08
 TEC VERDE,12,28,25,2,2026-07-11,2026-08-08
-URBAN,329,28,35,2,2026-07-11,2026-08-08
-URBAN,330,28,35,2,2026-07-11,2026-08-08
 ANDORA,PS64,28,35,2,2026-07-13,2026-08-10
 ANDORA,PS65,28,35,2,2026-07-13,2026-08-10
 CATARATAS,197,63,30,2,2026-06-08,2026-08-10
@@ -134,7 +132,6 @@ LIV,191,28,35,2,2026-07-15,2026-08-12
 LIV,192,28,35,2,2026-07-15,2026-08-12
 LIV,193,28,35,2,2026-07-15,2026-08-12
 LIV,194,28,35,2,2026-07-15,2026-08-12
-URBAN,331,28,35,2,2026-07-15,2026-08-12
 URBAN,332,14,,1,2026-07-29,2026-08-12
 URBAN,333,14,,1,2026-07-29,2026-08-12
 URBAN,334,14,,1,2026-07-29,2026-08-12
@@ -142,7 +139,6 @@ URBAN,335,14,,1,2026-07-29,2026-08-12
 URBAN,336,14,,1,2026-07-29,2026-08-12
 URBAN,337,14,,1,2026-07-29,2026-08-12
 URBAN,338,14,,1,2026-07-29,2026-08-12
-URBAN,339,14,,1,2026-07-29,2026-08-12
 ANDORA,PS69,28,30,2,2026-07-16,2026-08-13
 ANDORA,PS70,28,25,2,2026-07-16,2026-08-13
 ANDORA,PS71,28,25,2,2026-07-16,2026-08-13
@@ -284,7 +280,6 @@ URBAN,335,28,,2,2026-07-29,2026-08-26
 URBAN,336,28,,2,2026-07-29,2026-08-26
 URBAN,337,28,,2,2026-07-29,2026-08-26
 URBAN,338,28,,2,2026-07-29,2026-08-26
-URBAN,339,28,,2,2026-07-29,2026-08-26
 ANDORA,PS107,28,25,2,2026-07-30,2026-08-27
 ANDORA,PS108,28,25,2,2026-07-30,2026-08-27
 ANDORA,PS109,28,25,2,2026-07-30,2026-08-27
@@ -357,7 +352,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 10/08/2026 07:45";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 10/08/2026 07:49";
   var mapa={};
   DADOS.forEach(function(x){var c63=(x.idade===63); var k=x.cliente+"|"+x.rompimento+"|"+(c63?"63":"n");
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set(),c63:c63};
