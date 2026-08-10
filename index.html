@@ -71,7 +71,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · rompimentos de hoje (07/08) e amanhã (08/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 07/08/2026 13:12</footer>
+<footer>Terrano Engenharia · rompimentos de hoje (07/08) e amanhã (08/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 07/08/2026 13:20</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -81,20 +81,6 @@ $("#pwd").addEventListener("keydown",e=>{if(e.key==="Enter")tryLogin();});
 $("#btnPrint").onclick=function(){window.print();};
 let DADOS=[];
 const DADOS_CSV=`cliente,cp,idade,fck,n,concretagem,rompimento
-ANDORA,PS62,28,25,2,2026-07-09,2026-08-06
-ANDORA,PS63,28,25,2,2026-07-09,2026-08-06
-RITA LEE,321,28,30,2,2026-07-09,2026-08-06
-RITA LEE,322,28,30,2,2026-07-09,2026-08-06
-RITA LEE,323,28,30,2,2026-07-09,2026-08-06
-RITA LEE,324,28,30,2,2026-07-09,2026-08-06
-RITA LEE,348,7,30,2,2026-07-30,2026-08-06
-RITA LEE,349,7,30,2,2026-07-30,2026-08-06
-RITA LEE,350,7,30,2,2026-07-30,2026-08-06
-RITA LEE,351,7,30,2,2026-07-30,2026-08-06
-ARUNA,7,7,25,1,2026-07-31,2026-08-07
-ARUNA,8,7,25,1,2026-07-31,2026-08-07
-RITA LEE,338,14,30,2,2026-07-24,2026-08-07
-RITA LEE,G337,14,20,2,2026-07-24,2026-08-07
 CATARATAS,196,63,30,2,2026-06-06,2026-08-08
 MARCO TRÊS FRONTEIRAS,P10,7,40,2,2026-08-01,2026-08-08
 MARCO TRÊS FRONTEIRAS,P11,7,40,2,2026-08-01,2026-08-08
@@ -371,7 +357,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 07/08/2026 13:12";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 07/08/2026 13:20";
   var mapa={};
   DADOS.forEach(function(x){var c63=(x.idade===63); var k=x.cliente+"|"+x.rompimento+"|"+(c63?"63":"n");
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set(),c63:c63};
