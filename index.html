@@ -71,7 +71,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · rompimentos de hoje (10/08) e amanhã (11/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 11/08/2026 08:15</footer>
+<footer>Terrano Engenharia · rompimentos de hoje (10/08) e amanhã (11/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 11/08/2026 08:16</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -84,12 +84,6 @@ const DADOS_CSV=`
 cliente,cp,idade,fck,n,concretagem,rompimento
 MARCO TRÊS FRONTEIRAS,F-P10,7,40,2,2026-08-01,2026-08-08
 MARCO TRÊS FRONTEIRAS,F-P11,7,40,2,2026-08-01,2026-08-08
-ALEGRO,316AL,63,30,2,2026-06-09,2026-08-11
-ALEGRO,317AL,63,30,2,2026-06-09,2026-08-11
-ALEGRO,318AL,63,30,2,2026-06-09,2026-08-11
-ALEGRO,319AL,63,30,2,2026-06-09,2026-08-11
-ALEGRO,320AL,63,30,2,2026-06-09,2026-08-11
-ANDORA,PS19,63,25,2,2026-06-09,2026-08-11
 ANDORA,PS66,28,35,2,2026-07-14,2026-08-11
 ANDORA,PS67,28,35,2,2026-07-14,2026-08-11
 ANDORA,PS68,28,35,2,2026-07-14,2026-08-11
@@ -333,7 +327,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 11/08/2026 08:15";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 11/08/2026 08:16";
   var mapa={};
   DADOS.forEach(function(x){var c63=(x.idade===63); var k=x.cliente+"|"+x.rompimento+"|"+(c63?"63":"n");
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set(),c63:c63};
