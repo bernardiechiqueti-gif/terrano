@@ -71,7 +71,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · rompimentos de hoje (12/08) e amanhã (13/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 12/08/2026 14:35</footer>
+<footer>Terrano Engenharia · rompimentos de hoje (12/08) e amanhã (13/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 12/08/2026 14:41</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -362,7 +362,8 @@ ELIS REGINA,C274,28,30,2,2026-08-07,2026-09-04
 ELIS REGINA,C275,28,30,2,2026-08-07,2026-09-04
 ELIS REGINA,G271,28,20,2,2026-08-07,2026-09-04
 MARCO TRÊS FRONTEIRAS,C-ESC-7,28,30,2,2026-08-07,2026-09-04
-MARCO TRÊS FRONTEIRAS,C-ESC-8,28,30,2,2026-08-07,2026-09-04`;
+MARCO TRÊS FRONTEIRAS,C-ESC-8,28,30,2,2026-08-07,2026-09-04
+`;
 function normData(s){
   if(!s)return s; s=(""+s).trim();
   if(/^\d{4}-\d{2}-\d{2}/.test(s))return s.slice(0,10);           // ja ISO
@@ -395,7 +396,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 12/08/2026 14:35";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 12/08/2026 14:41";
   var mapa={};
   DADOS.forEach(function(x){var c63=(x.idade===63); var k=x.cliente+"|"+x.rompimento+"|"+(c63?"63":"n");
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set(),c63:c63};
