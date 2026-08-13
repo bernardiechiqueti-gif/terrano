@@ -71,7 +71,7 @@
   <div id="lista"></div>
 </div>
 <div id="printArea"></div>
-<footer>Terrano Engenharia · rompimentos de hoje (12/08) e amanhã (13/08) · contraprova (63d) só quando a nota fiscal está marcada · atualizado 13/08/2026 07:50</footer>
+<footer>Terrano Engenharia · vencidos + hoje + amanhã · contraprova (63d) só no dia · atualizado 13/08/2026 07:56</footer>
 <script>
 const SENHA="1887"; const DIAS_FRENTE=1;
 const $=s=>document.querySelector(s);
@@ -82,6 +82,29 @@ $("#btnPrint").onclick=function(){window.print();};
 let DADOS=[];
 const DADOS_CSV=`
 cliente,cp,idade,fck,n,concretagem,rompimento
+ANDORA,PS69,28,30,2,2026-07-16,2026-08-13
+ANDORA,PS70,28,25,2,2026-07-16,2026-08-13
+ANDORA,PS71,28,25,2,2026-07-16,2026-08-13
+ANDORA,PS72,28,25,2,2026-07-16,2026-08-13
+CATARATAS,227,28,30,2,2026-07-16,2026-08-13
+ELIS REGINA,C261,14,30,2,2026-07-30,2026-08-13
+ELIS REGINA,C262,14,30,2,2026-07-30,2026-08-13
+ELIS REGINA,C263,14,30,2,2026-07-30,2026-08-13
+ELIS REGINA,C264,14,30,2,2026-07-30,2026-08-13
+ELIS REGINA,G270,7,20,2,2026-08-06,2026-08-13
+RITA LEE,C325,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C326,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C327,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C328,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C329,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C330,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C331,28,30,2,2026-07-16,2026-08-13
+RITA LEE,C348,14,30,2,2026-07-30,2026-08-13
+RITA LEE,C349,14,30,2,2026-07-30,2026-08-13
+RITA LEE,C350,14,30,2,2026-07-30,2026-08-13
+RITA LEE,C351,14,30,2,2026-07-30,2026-08-13
+TEC VERDE,13,7,25,2,2026-08-06,2026-08-13
+TEC VERDE,14,7,25,2,2026-08-06,2026-08-13
 ANDORA,PS73,28,25,2,2026-07-17,2026-08-14
 ANDORA,PS74,28,30,2,2026-07-17,2026-08-14
 ANDORA,PS75,28,25,2,2026-07-17,2026-08-14
@@ -329,7 +352,7 @@ function diff(iso){return Math.round((new Date(iso+"T00:00:00")-hoje0())/8640000
 function render(){
   var h=new Date();
   $("#hoje").textContent=h.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
-  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 13/08/2026 07:50";
+  var st=document.getElementById("stamp"); if(st)st.textContent="· dados de 13/08/2026 07:56";
   var mapa={};
   DADOS.forEach(function(x){var c63=(x.idade===63); var k=x.cliente+"|"+x.rompimento+"|"+(c63?"63":"n");
     if(!mapa[k])mapa[k]={cliente:x.cliente,rompimento:x.rompimento,cps:[],fcks:new Set(),c63:c63};
